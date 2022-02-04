@@ -1,5 +1,5 @@
 {% set name = "pip-api" %}
-{% set version = "0.0.26" %}
+{% set version = "0.0.27" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pip-api-{{ version }}.tar.gz
-  sha256: d1266be311f1cd1ddd0d501e99275c7f6ff1fd0ec6db46d521f56e747d9286e5
+  sha256: 354825f2fa89b9b1c56e943be32823c09590e13055a57af5590456ff7d6524bd
 
 build:
   number: 0
