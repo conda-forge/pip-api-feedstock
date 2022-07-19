@@ -5,7 +5,7 @@ Home: http://github.com/di/pip-api
 
 Package license: Apache-2.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pip-api-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pip-api-feedstock/blob/main/LICENSE.txt)
 
 Summary: An unofficial, importable pip API
 
@@ -30,8 +30,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14764&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pip-api-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14764&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pip-api-feedstock?branchName=main">
       </a>
     </td>
   </tr>
@@ -54,16 +54,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pip-api` can be installed with:
+Once the `conda-forge` channel has been enabled, `pip-api` can be installed with `conda`:
 
 ```
 conda install pip-api
 ```
 
-It is possible to list all of the versions of `pip-api` available on your platform with:
+or with `mamba`:
+
+```
+mamba install pip-api
+```
+
+It is possible to list all of the versions of `pip-api` available on your platform with `conda`:
 
 ```
 conda search pip-api --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search pip-api --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search pip-api --channel conda-forge
+
+# List packages depending on `pip-api`:
+mamba repoquery whoneeds pip-api --channel conda-forge
+
+# List dependencies of `pip-api`:
+mamba repoquery depends pip-api --channel conda-forge
 ```
 
 
@@ -81,10 +106,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
